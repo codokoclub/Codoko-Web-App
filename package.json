@@ -1,0 +1,40 @@
+{
+  "name": "codoko-web-app",
+  "version": "1.0.0",
+  "description": "Codoko is a coding club at ABSS Institute of Technology, built to inspire, educate, and empower students through code.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codokoclub/Codoko-Web-App.git"
+  },
+  "keywords": [
+    "CODOKO"
+  ],
+  "author": "Jatin Kumar Mehta, Saurabh Kumar Mishra, Pankaj Kumar Ray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codokoclub/Codoko-Web-App/issues"
+  },
+  "homepage": "https://github.com/codokoclub/Codoko-Web-App#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.7.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.3",
+    "multer": "^2.0.2"
+  }
+}
