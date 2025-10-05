@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import CouncilPage from './components/CouncilPage/CouncilPage.jsx'
+import HomePage from './components/HomePage/HomePage.jsx'
 
 function App() {
-  return (
+  return(
     <>
-    <CouncilPage heading="CODOKO COUNCIL LOGIN"/>
-    <h1 style={{fontFamily:"roboto"}}>Pankaj </h1>
+    <HomePage/>
     </>
   )
 }

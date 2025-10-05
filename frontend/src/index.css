@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
-@import "./styles/font.css";
-
 body {
-   font-family: 'JetBrains Mono';
+  background-color: #00091C;
+  font-family: 'JetBrains Mono';
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 /* src/styles/fonts.css */
 @font-face {
   font-family: 'Inter';
@@ -20,4 +26,160 @@ body {
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+/* azeret-mono-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Azeret Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/azeret-mono.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'B612 Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/b612-mono.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* nanum-gothic-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/nanum-gothic-v26-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Pure CSS */
+.headerRight {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerRight a {
+  height: 32px;
+
+  margin: 10px 13px;
+
+  color: white;
+  transition-duration: 0.4s;
+  font-size: 26px;
+  width: 32px;
+}
+
+.headerRight a:hover {
+  color: #EF7722;
+}
+
+
+/* Header Top most */
+
+.headerTopMost {
+
+  /* padding-top: 10vh; */
+  display: flex;
+  background-image: url("./assets/codoko_binary.png");
+
+
+  background-blend-mode: overlay; 
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+
+  /* background-attachment: fixed; */
+  background-color: #00091C;
+  color: red;
+  background-blend-mode: overlay;
+
+  width: 100%;
+  position: fixed;
+
+
+
+  /* align-items: center; */
+  z-index:100;
+
+  justify-content: space-between;
+  font-family: "Nanum Gothic";
+
+  color: #FFFFFF;
+  font-size: 20px;
+
+}
+
+.headerTopMostLeft,.headerRight,.headerTopMostCenter{
+  position: relative;
+
+}
+.headerTopMostLeft li {
+  list-style-type: none;
+
+  background-color: #004C6B99;
+}
+
+
+.headerTopMostCenter li{
+  color: #33AAFF;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.headerTopMost img {
+  height: 10vh;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+
+/*  */
+
+.headerTopMostRight a i {
+  cursor: pointer;
+  font-size: 33px;
+}
+
+.joinEvent button {
+  font-family: "Nanum Gothic";
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border: 2px solid #FFC885;
+}
+
+.codingEmperorAppreciationEmoji:nth-last-child {
+  border: 2px solid red;
+  animation: emperor 2s linear infinite;
+
+}
+/* .headerTopMostRight a:nth-child(1){color: rgb(166, 81, 81);}
+.headerTopMostRight a:nth-child(2){color: skyblue;}
+.headerTopMostRight a:nth-child(3){color: red;}
+.headerTopMostRight a:nth-child(4){color: blue;} */
+
+@keyframes emperor {
+  from {
+
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    text-decoration: dotted;
+  }
 }
