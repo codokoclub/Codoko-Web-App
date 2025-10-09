@@ -1,6 +1,7 @@
+import InputSystem from "../Dashboard/InputSystem"
 
 
-function EmperorSays({ courseAndYear, saying }) {
+function EmperorSays({ dash,courseAndYear, saying }) {
 
     return (
 
@@ -15,7 +16,9 @@ function EmperorSays({ courseAndYear, saying }) {
                     </span>
                     {/* Prop to be passed */}
                     <span className="academicDetailsContent">
-                        {courseAndYear}
+                        {/* {courseAndYear} */}
+                        {dash ? <InputSystem eventTitleData={courseAndYear} fontColor="#FOFO99"/> : courseAndYear}
+                        
                     </span>
                 </span>
                 <span className="codingEmperorSays">
@@ -24,7 +27,9 @@ function EmperorSays({ courseAndYear, saying }) {
                     </span>
                     {/* Prop to be passed */}
                     <span className="codingEmperorSaysContent" style={{color:"#F0FF98"}}>
-                        {saying}
+
+                        
+                         {dash ? <InputSystem eventTitleData={saying} fontColor="#F0FF99"/> : saying}
                     </span>
                 </span>
             </div>

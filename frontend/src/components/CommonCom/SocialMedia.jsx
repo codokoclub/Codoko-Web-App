@@ -2,7 +2,7 @@
 
 function SocialMedia() {
     return (
-        <div className="SocialMediaCont">
+        <div className="SocialMediaCont ">
             <div className="containerTitle">
                 <span>Social Handles</span>
             </div>
@@ -19,9 +19,9 @@ function SocialMedia() {
                     </div>
                 </div>
             </div>
-            <div className="updateSocialHandles">
+            {/* <div className="updateSocialHandles">
                 <button>Update Social Links</button>
-            </div>
+            </div> */}
         </div>
     )
 }
