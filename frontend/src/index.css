@@ -37,7 +37,7 @@ body {
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Azeret Mono';
   font-style: normal;
-  font-weight: 400;
+
   src: url('../fonts/azeret-mono.woff2') format('woff2');
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
@@ -103,7 +103,7 @@ body {
   color: red;
 
 
-  width: 100%;
+  /* width: 100%; */
   /* position: fixed; */
 
 
@@ -256,5 +256,54 @@ border-radius: 20px;
 .binaryCode{
   font-family: "BBH Sans Bartle", sans-serif;
 font-weight: 1000;
+
+}
+
+/* Certification System Styling - Pure CSS */
+
+.CertificateDoc {
+  position: relative;
+
+  overflow: hidden;
+  border-radius: 8px;
+  isolation: isolate;
+}
+
+/* Background image with blur */
+.CertificateDoc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/src/assets/CertificatePage/certificate_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+/* Optional overlay for contrast */
+.CertificateDoc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Certificate content */
+.CertificateDoc > .CertificateCard {
+  position: relative;
+  z-index: 2;
+}
+
+
+#downloadBtn{
+  font-size: 30px;
+}
+
+.rightNavigation a i{
+ font-size: 28px;
+ margin: 2px 04px;
 
 }

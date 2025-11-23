@@ -1,117 +1,149 @@
 import Sclinks from "./Sclinks.jsx";
 import { Link, NavLink } from "react-router-dom";
-
-function HeaderTopMost() {
-
-    // tailwind classes for styling
- 
- const headerTopCenterStyleMod = " bg-[#0D628380]  text-[20px] px-[30px] py-[15px] rounded-[18px] text-white";
- const headerTopCenterStyleMod2 = "   text-[20px] text-[#33AAFF] px-[30px] py-[15px] rounded-[18px] ";
+import HeaderTopMostRight from "./HeaderTopMostRight.jsx";
 
 
-    const headerTopMostLeftLI = "bg-[#004C6B99] w-[235px] h-[48px] flex items-center justify-center "
+
+function HeaderTopMost({ headerTopMostLeftLI, headerTopCenterStyleMod, headerTopCenterStyleMod2, socialMediaDataInfo }) {
+
+  // socialMediaData
+
+ const mediaDataInfo = [
+  {
+    id: "instagram",
+    label: "Instagram",
+    webAddress: "https://www.instagram.com/codokoclub/",
+    class: "ri-instagram-line"
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    webAddress: "https://in.linkedin.com/company/codokoclub",
+    class: "ri-linkedin-line"
+  },
+  {
+    id: "youtube",
+    label: "YouTube",
+    webAddress: "https://www.youtube.com/@codokoclub",
+    class: "ri-youtube-line"
+  },
+  {
+    id: "discord",
+    label: "Discord",
+    webAddress: "https://discord.gg/9UrkcU4r",
+    class: "ri-discord-line"
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    webAddress: "https://github.com/codokoclub",
+    class: "ri-github-line"
+  }
+];
 
 
-    return (
-
-        <div className="flex h-[232px] px-[100px] items-center justify-between w-[100%] " style={{ fontFamily: "Nanum Gothic" }}>
-            {/* <img src=" /src/assets/codoko_binary.png" style={{backgroundColor:"navy"}} alt="" srcset="" height="95vh"/> */}
-
-            <div className="backgroundText bg-[#000715] absolute inset-0 -z-10 top-[-100px]  " style={{ zIndex: -10 }}>
-                <span className="binaryCode text-[290px] " style={{ fontWeight: 1500, zIndex: "-10", color: "#00091C", letterSpacing: "20px" }}>0101001010101010</span>
-            </div>
-
-            <div className="headerTopMostLeft w-[235px]  h-[48px] z-50 " style={{ fontWeight: 700, borderRadius: "18px" }}>
-                <Link to="#">
-
-                    <li className={headerTopMostLeftLI} style={{ borderRadius: "18px", color: "#FFFFFF" }}>
-
-                        <NavLink
-                            to="/verifycertificate"
-                            className={
-                                ({ isActive }) => `${isActive ? "text-amber-800" : "text-cyan-300"}`
-                            }
-                            style={{ color: "#FFFFFF" }}
-                        >
+const sc = mediaDataInfo.map(
+  (elem=>{
+  return <Sclinks url={elem.webAddress} icon={elem.class}/>
+}))
 
 
-                            Verify Certificate
-                        </NavLink>
-
-                    </li>
-                </Link>
-            </div>
-            <div
-                className=" box-border w-[235px] list-none   h-[48px] flex rounded-md bg-[#004C6B80] justify-between items-center"
-                style={{ borderRadius: "18px" }}>
+  // tailwind classes for styling
+  const topCenterStyleMod = " bg-[#0D628380]  text-[20px] px-[30px] py-[15px] rounded-[18px] text-white";
+  const topCenterStyleMod2 = "   text-[20px] text-[#33AAFF] px-[30px] py-[15px] rounded-[18px] ";
+  const topMostLeftLI = "bg-[#004C6B99] w-[235px] h-[48px] flex items-center justify-center "
 
 
-                {/* Home navigation bUtton */}
-                <li >
 
-                    <NavLink
+  return (
+    <div
+      className="flex h-[232px] px-[100px] items-center justify-between w-[100%]"
+      style={{ fontFamily: "Nanum Gothic" }}
+    >
+      {/* Background binary text */}
+      <div
+        className="backgroundText bg-[#000715] absolute overflow-hidden inset-0 -z-10  top-[-100px]"
+        style={{ zIndex: -10 }}
+      >
+        <span
+          className="binaryCode text-[290px]"
+          style={{
+            fontWeight: 1500,
+            zIndex: "-10",
+            color: "#00091C",
+            letterSpacing: "20px",
+          }}
+        >
+          0101001010101010
+        </span>
+      </div>
 
-                        to="/"
-                        //  className={headerTopCenterStyleMod}
-
-                        className={
-                            ({ isActive }) => `
-                text-green ${isActive ? headerTopCenterStyleMod : headerTopCenterStyleMod2}`
+      {/* Left Section */}
+      <div
+        className="headerTopMostLeft w-[235px] h-[48px] z-50"
+        style={{ fontWeight: 700, borderRadius: "18px" }}
+      >
+        <li
+          className={topMostLeftLI}
+          style={{ borderRadius: "18px", color: "#FFFFFF", listStyle: "none" }}
+        >
+          <NavLink
+            to="/certificate"
+            className={({ isActive }) =>
+              `${isActive ? "text-amber-800" : "text-cyan-300"}`
             }
+            style={{ color: "#FFFFFF" }}
+          >
+            Verify Certificate
+          </NavLink>
+        </li>
+      </div>
 
-                    >
-                        Home
-                    </NavLink>
+      {/* Center Navigation */}
+      <div
+        className="box-border w-[235px] list-none h-[48px] flex rounded-md bg-[#004C6B80] justify-between items-center"
+        style={{ borderRadius: "18px" }}
+      >
+        {/* Home */}
+        <li style={{ listStyle: "none" }}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `text-green ${isActive ? topCenterStyleMod : topCenterStyleMod2
+              }`
+            }
+          >
+            Home
+          </NavLink>
+        </li>
 
+        {/* About */}
+        <li style={{ borderRadius: "18px", listStyle: "none" }}>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `text-green ${isActive ? topCenterStyleMod : topCenterStyleMod2
+              }`
+            }
+          >
+            About
+          </NavLink>
+        </li>
+      </div>
 
+      {/* Right Navigation */}
 
-                </li>
-
-                {/* About Navigation Button */}
-                <li
-                    
-                    style={{ borderRadius: "18px" }}>
-
-                    <NavLink
-                        to="/about"
-
-                
-                       className={
-                            ({ isActive }) => `
-                text-green ${isActive ? headerTopCenterStyleMod : headerTopCenterStyleMod2}`
-                       }
-                    >
-
-
-                        About
-                    </NavLink>
-
-
-
-
-
-                </li>
-                {/* Central Navigation ENds here */}
-            </div>
-
-            <div className="headerTopMostRight  ">
-
-                <Sclinks url="https://www.instagram.com/codokoclub/" icon="ri-instagram-line" />
-
-                <Sclinks url="https://www.linkedin.com/codokoclub/" icon="ri-linkedin-box-fill" />
-
-                <Sclinks url="https://www.youtube.com/@codokoclub/"
-                    icon="ri-youtube-fill" />
-
-                <Sclinks url="https://discord.gg/AzYnAnAJ"
-                    icon="ri-discord-fill" />
-                <Sclinks url="https://github.com/codokoclub"
-                    icon="ri-github-fill" />
-            </div>
+     <div className="rightNavigation">
+     
+     {
+      sc
+     }
+     </div>
 
 
+    </div>
+  );
+};
 
-        </div>
-    )
-}
+
 export default HeaderTopMost

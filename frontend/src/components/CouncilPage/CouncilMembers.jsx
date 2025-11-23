@@ -1,23 +1,33 @@
+import Sclinks from "../CommonCom/Sclinks"
 import InputSystem from "../Dashboard/InputSystem"
 
 
-function CouncilMembers({w ,data, dash, disp }) {
+function CouncilMembers({ w, data, dash, disp ,wholeData}) {
+
+const scMed = wholeData.map((elem)=>{
+
+    console.log(typeof elem.socialHandles);
+    });
+
+
+
+    console.log(scMed)
 
     return (
 
-        <div className="CouncilMembers flex    my-[10px] flex flex-row flex-wrap flex-auto justify-start"  >
+        <div className="CouncilMembers flex  my-[10px]  flex-row flex-wrap flex-auto justify-start"  >
             <div className="CouncilMemberLeft">
 
                 <img
                     src={data.councilMemberImgLink}
 
-                    className="cursor-pointer  hover:scale-250 transition duration-500 delay-200 ease-in-out"
+                    className="cursor-pointer  hover:scale-95 transition duration-500 delay-200 ease-in-out"
                     style={
                         {
                             objectFit: "center",
 
 
-                            height:`${w}`,
+                            height: `${w}`,
                             width: `${w}`,
                             // width: "100%",
                             borderRadius: "9px",
@@ -58,7 +68,7 @@ function CouncilMembers({w ,data, dash, disp }) {
                 </div>
                 <div className="CouncilMemberAcademicDetails my-[5px]  text-[#EFC0FF] flex-wrap">
                     {dash ?
-                        <InputSystem eventTitleData={data.councilMemberAcademicDetails} />
+                        <InputSystem eventTitleData={data.socialMediaHandles} />
                         :
                         data.councilMemberAcademicDetails
 
@@ -66,6 +76,14 @@ function CouncilMembers({w ,data, dash, disp }) {
 
 
                 </div>
+                <div className="councilMemberSocialHandles bg-amber-400">
+
+{scMed}
+ 
+
+
+                </div>
+
             </div>
         </div>
     )

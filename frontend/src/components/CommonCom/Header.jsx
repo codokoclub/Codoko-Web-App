@@ -24,7 +24,7 @@ function Header({clubDisc,aboutPage}) {
             {/* Should be done by Prop not hardcoding */}
         <div
   className={`headerBottom flex flex-col mx-[110px] ${aboutPage ? "hidden" : "flex"}`}
->
+> 
 
                 <div className="headerBottomUp " >
                     <span className="headerBottomUpTagline text-[16px]" style={{ fontFamily: "B612 Mono" }}>

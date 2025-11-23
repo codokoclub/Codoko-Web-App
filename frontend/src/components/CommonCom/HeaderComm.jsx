@@ -9,7 +9,7 @@ function HeaderComm({clubDesc}) {
 
                 <div className="codokoDetails flex flex-row items-center">
                     <div className="codokoDetailLeft">
-                        <div className="codokoLogo mr-4">
+                        <div cheaderlassName="codokoLogo mr-4">
                             <img src="/src/assets/CodokoClubLogo.png" className="w-[109px] height-[109px]" alt="codoko_club logo not displayed" srcset="" />
                         </div>
                     </div>

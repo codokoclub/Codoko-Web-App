@@ -14,9 +14,9 @@
     "url": "git+https://github.com/codokoclub/Codoko-Web-App.git"
   },
   "keywords": [
-    "CODOKO"
+    "CODOKO CLUB"
   ],
-  "author": "Jatin Kumar Mehta, Saurabh Kumar Mishra, Pankaj Kumar Ray",
+  "author": "Jatin Kumar Mehta, Pankaj Kumar Ray",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codokoclub/Codoko-Web-App/issues"
@@ -32,6 +32,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.3",

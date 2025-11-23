@@ -13,10 +13,6 @@ import CouncilLoginLink from "../CouncilLogin/CouncilLoginLink.jsx"
 function HomePage() {
     return (
         <>
-
-
-
-
             <Header clubDisc="A coding club at ABSS Institute of Technology, Meerut" />
         
             <EventCont />
