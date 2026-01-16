@@ -12,20 +12,45 @@ function EventData() {
 
 
 
+  
 
 
     const memberDetailsArray = [
 
+        {
+            "councilMemberImgLink": "/src/assets/dps/aarzoo_dp.jpg",
+            "councilMembersName": "Mr. Pankaj Kumar Ray ",
+            "councilMemberDesignation": "Chairman",
+            "councilMemberAcademicDetails": "B.Tech CSE, 3rd Year, 2023-2027"
+        },
+
+        {
+            "councilMemberImgLink": "/src/assets/dps/Yuvraj.jpg",
+            "councilMembersName": "Mr. Yuvraj Singh",
+            "councilMemberDesignation": "Vice Chairman",
+            "councilMemberAcademicDetails": "B.Tech CSE, 3rd Year, 2023-2027"
+        },
 
 
         {
             "councilMemberImgLink": "/src/assets/dps/arju.png",
             "councilMembersName": "Mr. Ayush Kumar",
             "councilMemberDesignation": "Chairman",
+            "councilMemberDesignation": "Club Coordinator",
             "councilMemberAcademicDetails": "B.Tech CSE, 3rd Year, 2023-2027"
 
 
         },
+        {
+            "councilMemberImgLink": "/src/assets/dps/priyanshi_yadav.jpg",
+            "councilMembersName": "Mrs. Priyanshi Yadav",
+            "councilMemberDesignation": "Club Coordinator",
+            "councilMemberAcademicDetails": "B.Tech CSE, 3rd Year, 2023-2027"
+
+
+        },
+
+
         {
             "councilMemberImgLink": "/src/assets/dps/mm_dp.jpeg",
             "councilMembersName": " Mr. Mohit Mishra",
@@ -46,6 +71,17 @@ function EventData() {
             "councilMembersName": "Mr. Pankaj Kumar Ray ",
             "councilMemberDesignation": "Club Coordinator and Developer",
             "councilMemberAcademicDetails": "B.Tech CSE, 3rd Year, 2023-2027"
+            "councilMemberImgLink": "/src/assets/dps/dummy.jpg",
+            "councilMembersName": "Mrs. Pooja Goel",
+            "councilMemberDesignation": "Faculty Incharge",
+            "councilMemberAcademicDetails": "B.Tech CSE, 2nd Year, 2024-2028"
+
+        },
+        {
+            "councilMemberImgLink": "/src/assets/dps/dummy.jpg",
+            "councilMembersName": "Mrs. Renu Sharma",
+            "councilMemberDesignation": "Faculty Coordinator",
+            "councilMemberAcademicDetails": "Associated with ABSSIT"
         },
 
     ]
@@ -65,6 +101,16 @@ function EventData() {
 
         setMemberDetails(prev => [...prev, newMember]);
     }
+function addData() {
+  const newMember = {
+    councilMemberImgLink: "/src/assets/dps/dummy.jpg",
+    councilMembersName: "Mrs. Renu Sharma",
+    councilMemberDesignation: "Faculty Coordinator",
+    councilMemberAcademicDetails: "Associated with ABSSIT"
+  };
+
+  setMemberDetails(prev => [...prev, newMember]);
+}
     useEffect(() => {
 
         setMemberDetails((prev) => [...memberDetailsArray])
@@ -111,6 +157,16 @@ function EventData() {
                             class="w-full h-auto"
                             className="w-full h-[40vh]"
                         /> */}
+                <div className="containerUpdateEventImage bg-amber-600 w-[80vw] h-[400px]">
+
+                    <label for="fileInput" class="relative inline-block cursor-pointer">
+                        {/* <img
+                    src="src/assets/eventBanner.png"
+                    alt="Upload"
+                    height="40px"
+                    class="w-full h-auto"
+                    className="w-full h-[40vh]"
+                /> */}
                         <span
                             class="floatingText absolute inset-0 flex items-center justify-center 
            text-white text-lg font-semibold bg-black w-[500px]" style={{ fontFamily: "Azeret Mono" }}>
@@ -135,6 +191,7 @@ function EventData() {
                     eventJoiningLink="https://example.website.com/form/link"
                 />
                 <div className="containerUpdateEventImage bg-[#000715] border-2 border-dashed border-gray-500 w-[80vw] h-[400px]">
+                <div className="containerUpdateEventImage bg-amber-600 w-[80vw] h-[400px]">
 
                     <label for="fileInput" class="relative inline-block cursor-pointer">
                         {/* <img
@@ -194,6 +251,7 @@ function EventData() {
 
                         {/* <span className="text-[#FF5C5C]">Username: </span> */}
                         <div className="block">    <InputSystem eventTitleData="CELESTIAL SERENITY" /></div>
+                    <div className="block">    <InputSystem eventTitleData="CELESTIAL SERENITY" /></div>
                         {/* <EmperorDetails title="CODING EMPEROR OF THE SEMESTER" color="#0C8CE9" emoji="🫡" /> */}
 
 
@@ -210,6 +268,18 @@ function EventData() {
                             <InputSystem fontColor="#F0FF99" eventTitleData="We have a special coding contest every year, the winner becomes EMPEROR" />
                         </div>
 
+{/* <span className="text-[#F0FF99]">Course & Year: </span> */}
+<div className="block">
+
+                        <InputSystem  fontColor="#F0FF99" eventTitleData="B. Tech CSE, 2nd Year"/>
+</div>
+
+
+{/* <span className="text-[#FF25B3]">Coding Emperor: </span> */}
+                      <div className="block">
+                          <InputSystem fontColor="#F0FF99" eventTitleData="We have a special coding contest every year, the winner becomes EMPEROR"/>
+                      </div>
+                        
 
                     </div>
                 </div>
@@ -220,6 +290,8 @@ function EventData() {
             </div>
 
             {/* Codoko Club Council Member */}
+
+
 
             <div className="CouncilMember mt-[80px] mx-[140px] flex-row flex-wrap ">
 
@@ -238,11 +310,21 @@ function EventData() {
 
 
                 <div className="councilMemberInfo mt-3 flex-column ">
+                       <button class="bg-green-600 cursor-pointer hover:bg-green-700 text-white px-5 py-1 rounded-lg transition duration-200 text-[24px]" onClick={()=>{addData}}>
+  + Add Member
+</button>
+                    </div>
+                    
+                </div>
+
+
+                <div className="councilMemberInfo mt-3 flex justify-between flex-wrap ">
 
                     {
                         memberDetails.map((elem) => {
 
                             return <CouncilMembers w="260px" dash={true} data={elem} disp="column" />
+                            return <CouncilMembers w="260px"  dash={true}data={elem} disp="column" />
                         })
                     }
                 </div>

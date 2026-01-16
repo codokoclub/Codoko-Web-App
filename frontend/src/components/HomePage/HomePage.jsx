@@ -5,6 +5,8 @@ import Header from "../CommonCom/Header.jsx";
 import EventCont from "./EventCont.jsx";
 import CodingEmperor from "../HomePage/CodingEmperor.jsx"
 import CouncilMember from "../CouncilPage/CouncilMember.jsx"
+import LoginBtn from "../CouncilLogin/LoginBtn.jsx"
+import Footer from "../CommonCom/Footer.jsx";
 import CouncilLoginLink from "../CouncilLogin/CouncilLoginLink.jsx"
 
 
@@ -17,6 +19,11 @@ function HomePage() {
             <CodingEmperor />
             <CouncilMember />
             <CouncilLoginLink />
+        
+            <EventCont />
+            <CodingEmperor />
+            <CouncilMember />
+<CouncilLoginLink/>
         </>
     )
 }

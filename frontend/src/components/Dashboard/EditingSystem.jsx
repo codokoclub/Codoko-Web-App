@@ -24,6 +24,7 @@ function EditingSystem() {
     const saveData = useRef('')
 
 
+    
     function showContent() {
         setShow((prev) => prev == 'none' ? 'block' : 'none')
     }
@@ -75,6 +76,7 @@ function EditingSystem() {
 
                 <span>
                     <i class="ri-edit-fill text-3xl text-cyan-50" onClick={() => { showContent() }}></i>
+                    <i class="ri-edit-fill text-3xl text-cyan-50" onClick={()=>{showContent()}}></i>
 
                 </span>
             </div>
@@ -104,6 +106,29 @@ function EditingSystem() {
                         className="ri-close-circle-fill mx-[10px] text-4xl text-green-700 hover:text-amber-300 transition"></i>
                 </div>
             </div>
+            <div className="box my-10  flex-col cursor-pointer "  style={{display:`${show}`}}>
+
+            <label htmlFor="editingBox" className="text-amber-100 text-2xl">Edit Here</label>
+
+            <div className="oneLiner flex bg-white rounded-3xl justify-between pr-4">
+
+                <input type="text" id="editingBox" className="w-[400px] px-2 h-[40px] bg-amber-200 rounded-xl text-gray-950" ref={editBoxRef}
+                />
+
+                <i
+
+
+                    onClick={() => { btn() }}
+                    className="ri-save-fill text-4xl text-green-700 mx-[20px] hover:text-amber-300 transition" style={{display:"flex"}}></i>
+
+
+                <i
+
+
+                    onClick={() => { clearAll() }}
+                    className="ri-close-circle-fill mx-[10px] text-4xl text-green-700 hover:text-amber-300 transition"></i>
+            </div>
+        </div>
         </div >
     )
 }

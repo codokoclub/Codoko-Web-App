@@ -19,6 +19,17 @@ function Certificate() {
 
     </div>
   )
+    return (
+
+        <>
+
+            <HeaderComm clubDesc="Certificate Verification" />
+            <SearchBox />
+            <CertificateDoc startDate="October 15, 2023" endDate="October 4, 2025" designation="Chairman" asA="founding" />
+            
+
+        </>
+    )
 }
 
 export default Certificate

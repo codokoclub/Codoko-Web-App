@@ -32,6 +32,7 @@ const downloadCertificate = async () => {
             }
         }
     })
+    const canvas = await html2canvas(element, { scale: 2 })
     const imgData = canvas.toDataURL("image/png")
     const pdf = new jsPDF("landscape", "pt", "a4")
     const width = pdf.internal.pageSize.getWidth()
@@ -54,6 +55,24 @@ from ${startDate} to ${endDate}.`
 
 
                 <div className="CertificateDoc flex flex-col items-center justify-between w-[940px] h-[595px] pt-[70px] px-[60px] origin-top scale-[0.30] min-[375px]:scale-[0.35] min-[500px]:scale-[0.48] sm:scale-[0.62] md:scale-[0.72] lg:scale-100" >
+        <div className="OuterCont">
+            <div className="CertificationDownloadBtn flex items-center cursor-pointer  py-[10px] mt-[20px] px-[40px]" style={{ fontFamily: "Azeret Mono" }}>
+                <button className="DownloadBtn rounded px-[10px] bg-red flex items-center cursor-pointer" onClick={downloadCertificate}>
+
+                    <i class="ri-download-line" id="downloadBtn"></i>
+                    <label htmlFor="downloadBtn" className="mx-[20px]">
+                        Download Certificate in PDF
+                    </label>
+                </button>
+
+            </div>
+
+            <div className="CertificateCont flex items-center justify-center  py-[30px] px-[20px] " style={{ fontFamily: "Azeret Mono" }} id="certificate">
+
+
+
+                <div className="CertificateDoc flex flex-col
+            items-center justify-between  w-[940px] h-[595px]  pt-[70px] px-[60px]  " >
 
                     <div className="CertificateCard flex flex-col  flex flex-col">
 

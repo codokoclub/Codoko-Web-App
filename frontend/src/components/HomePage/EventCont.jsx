@@ -7,6 +7,9 @@ function EventCont() {
 
     return (
         <div className="eventContainer flex flex-col my-[60px]">
+    
+    return (
+        <div className="eventContainer flex flex-col my-[60px]  mx-[190px] ">
 
             {/* First Part - Dashboard */}
             <div className="containerTitle my-3">
@@ -30,6 +33,7 @@ function EventCont() {
                 joiningDate="21-09-2025"
                 eventDate="2-10-2025" />
 
+                
             <EventDetails
                 imgLink="src/assets/cpu.png"
                 eventTitle="NightOps Session: 09.25"

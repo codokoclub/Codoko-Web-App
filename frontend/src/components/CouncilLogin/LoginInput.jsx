@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 
 export default function PasswordField({ name, placeholder }) {
   const [visible, setVisible] = useState(false);
@@ -13,6 +14,7 @@ export default function PasswordField({ name, placeholder }) {
   return (
     <div
       className="loginInput flex items-center w-full max-w-[775px] h-[59px] my-[10px] bg-[#19183B] px-[25px] text-[18px] sm:text-[24px]"
+      className="loginInput flex items-center w-[775px] h-[59px] my-[10px] bg-[#19183B] px-[25px] text-[24px]"
       style={{ fontFamily: "Jaldi", borderRadius: "18px" }}
     >
       <input

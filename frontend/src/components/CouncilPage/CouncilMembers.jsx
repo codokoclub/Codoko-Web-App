@@ -13,6 +13,21 @@ function CouncilMembers({ w, data, dash, disp, wholeData }) {
 
         <div className="CouncilMembers flex my-[10px] flex-row flex-wrap flex-auto justify-start"  >
             <div className="CouncilMemberLeft flex-shrink-0">
+function CouncilMembers({ w, data, dash, disp ,wholeData}) {
+
+const scMed = wholeData.map((elem)=>{
+
+    console.log(typeof elem.socialHandles);
+    });
+
+
+
+    console.log(scMed)
+
+    return (
+
+        <div className="CouncilMembers flex  my-[10px]  flex-row flex-wrap flex-auto justify-start"  >
+            <div className="CouncilMemberLeft">
 
                 <img
                     src={data.councilMemberImgLink}
@@ -22,6 +37,15 @@ function CouncilMembers({ w, data, dash, disp, wholeData }) {
                         {
                             height: `${w}`,
                             width: `${w}`,
+                    className="cursor-pointer  hover:scale-95 transition duration-500 delay-200 ease-in-out"
+                    style={
+                        {
+                            objectFit: "center",
+
+
+                            height: `${w}`,
+                            width: `${w}`,
+                            // width: "100%",
                             borderRadius: "9px",
 
                         }
@@ -34,6 +58,7 @@ function CouncilMembers({ w, data, dash, disp, wholeData }) {
 
             <div
                 className="CouncilMemberRight ml-7 flex flex-col flex-wrap justify-center"
+                className="CouncilMemberRight   ml-7  flex flex-col flex-wrap justify-center      "
                 style={{ fontFamily: "Azeret Mono", fontSize: "20px" }}
             >
 
@@ -53,6 +78,7 @@ function CouncilMembers({ w, data, dash, disp, wholeData }) {
                         <InputSystem eventTitleData={data.councilMemberDesignation} />
                         :
                         data.councilMemberDesignation
+
                     }
 
 
@@ -60,6 +86,7 @@ function CouncilMembers({ w, data, dash, disp, wholeData }) {
                 <div className="CouncilMemberAcademicDetails my-[5px]  text-[#EFC0FF] flex-wrap">
                     {dash ?
                         <InputSystem eventTitleData={data.councilMemberAcademicDetails} />
+                        <InputSystem eventTitleData={data.socialMediaHandles} />
                         :
                         data.councilMemberAcademicDetails
 
@@ -68,6 +95,13 @@ function CouncilMembers({ w, data, dash, disp, wholeData }) {
 
                 </div>
                 {/* Social handles section removed - was empty and showing amber background */}
+                <div className="councilMemberSocialHandles bg-amber-400">
+
+{scMed}
+ 
+
+
+                </div>
 
             </div>
         </div>

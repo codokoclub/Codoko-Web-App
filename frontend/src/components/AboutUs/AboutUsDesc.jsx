@@ -4,6 +4,7 @@ function AboutusDesc() {
     return (
 
         <div className="aboutUsDesc" style={{ fontFamily: "Azeret Mono" }}>
+        <div className="aboutUsDesc mx-[160px] " style={{ fontFamily: "Azeret Mono" }}>
 
             <div className="aboutUsDescBanner my-[30px]">
 
@@ -20,6 +21,7 @@ function AboutusDesc() {
 
                     <section className="text-[#F0FF99] my-[8px]">
                         The name "Codoko" reflects the spirit of code + community + collaboration — symbolizing a movement that goes beyond just programming, aiming to cultivate a culture of innovation, curiosity, and teamwork within and beyond the campus.
+                        The name “Codoko” reflects the spirit of code + community + collaboration — symbolizing a movement that goes beyond just programming, aiming to cultivate a culture of innovation, curiosity, and teamwork within and beyond the campus.
                     </section>
                 </div>
             </div>
@@ -27,4 +29,5 @@ function AboutusDesc() {
     )
 }
 
+export default AboutusDesc
 export default AboutusDesc

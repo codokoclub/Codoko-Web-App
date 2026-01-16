@@ -32,6 +32,11 @@ function InputSystem({ eventTitleData, fontColor, fontSize, fontFamily, height, 
         console.log(editBoxRef.value)
     }
 
+        console.log("Clear the content");
+        editBoxRef.current.value = null
+
+        console.log(editBoxRef.value)
+    }
     function btn(content) {
         let temp = editBoxRef.current.value
         let dataToBeSaved = saveData.current.textContent
@@ -90,6 +95,11 @@ function InputSystem({ eventTitleData, fontColor, fontSize, fontFamily, height, 
                     <i
                         onClick={() => { clearAll() }}
                         class="ri-close-line  px-[10px] text-[35px] text-[800] cursor-pointer hover:text-[#DC2626]-500 transition duration-300 bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded"></i>
+                <div className="minorFeatures ">
+
+                    <i
+                        onClick={() => { clearAll() }}
+                        class="ri-close-line px-[10px] text-[35px] text-[800] cursor-pointer hover:text-[#DC2626]-500 transition duration-300 bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded"></i>
 
                     <i
                         onClick={() => { btn() }}

@@ -17,6 +17,15 @@ function DashboardPage() {
 
         </div>
 
+    <div className="dashboardPage    ">
+
+{/* <EditingSystem/> */}
+        <LoginBtn txt="Council Logout"/>
+        <HeaderComm clubDesc="Council Dashboard" />
+        <EventData />
+        <Footer/>
+    </div>
+    
     )
 
 }
