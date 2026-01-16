@@ -9,9 +9,11 @@ cloudinary.config({
 
 const uploadOnCloudinary = async function(avatarLocalPath){
    try {
+
+    console.log("I am in Cloudinary Utls")
      if(!avatarLocalPath) { return "No Local Path"}
  
-    const response = await cloudinary.uploader.upload(avatarLocalPath)
+    const response = await cloudinary.uploader.upload(avatarLocalPath,{resource_type:"auto",folder:"profilePic"})
     return response
    } catch (error) {
     console.error("ERROR during Uploading",error);
