@@ -9,7 +9,7 @@ dbConnect().then(()=>{
     })
     
     app.get('/',(req,res,next)=>{
-    res.send('You are at HomePage')
+    res.send('Fuck you Pankaj')
     })
 }).catch((err)=>{
     console.log(`Couldn't connect to Database..`)

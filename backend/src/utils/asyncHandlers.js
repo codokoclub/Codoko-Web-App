@@ -13,4 +13,4 @@ const asyncHandler = (fun)=>async(req,res,next)=>{
     }
 }
 
-export default asyncHandler
+export {asyncHandler}
