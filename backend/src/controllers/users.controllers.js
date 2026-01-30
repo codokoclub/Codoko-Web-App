@@ -27,6 +27,10 @@ const generateAcessTokenAndRefreshToken = async (userId) => {
 }
 
 
+const userRegistration = asyncHandler(async(req,res)=>{
+    
+})
+
 
 
 const userLogin = asyncHandler(async (req, res) => {

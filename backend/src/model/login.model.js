@@ -29,39 +29,39 @@ const loginSchema = new Schema({
 
 
 
-// pre - hook - database middleware
-loginSchema.pre("save", async function (next) {
+// // pre - hook - database middleware
+// loginSchema.pre("save", async function (next) {
 
-    if (!this.isModified("password")) return next()
+//     if (!this.isModified("password")) return next()
 
-    this.password = await bcrpt.hash(this.password, 20)
-    next()
-})
-
-
-loginSchema.methods.isPasswordCorrect = async function (password) {
-    return await bcrpt.compare(password, this.password)
-}
+//     this.password = await bcrpt.hash(this.password, 20)
+//     next()
+// })
 
 
-loginSchema.method.generateAcessToken = function () {
+// loginSchema.methods.isPasswordCorrect = async function (password) {
+//     return await bcrpt.compare(password, this.password)
+// }
 
-    return jwt.sign({
-        _id: this._id,
-        councilId:this.councilId,
 
-    },
-        process.env.ACCESS_TOKEN_SECRET
-        , {
+// loginSchema.method.generateAcessToken = function () {
 
-            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
-        })
-}
+//     return jwt.sign({
+//         _id: this._id,
+//         councilId:this.councilId,
 
-loginSchema.method.generateRefreshToken = function(){
+//     },
+//         process.env.ACCESS_TOKEN_SECRET
+//         , {
 
-    return jwt.sign({_id:this._id},process.env.REFRESH_TOKEN_SECRET,{expiresIn:process.env.REFRESH_TOKEN_EXPIRY})
-}
+//             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+//         })
+// }
+
+// loginSchema.method.generateRefreshToken = function(){
+
+//     return jwt.sign({_id:this._id},process.env.REFRESH_TOKEN_SECRET,{expiresIn:process.env.REFRESH_TOKEN_EXPIRY})
+// }
 
 
 export const Login = mongoose.model("Login", loginSchema)
