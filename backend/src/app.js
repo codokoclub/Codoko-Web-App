@@ -3,10 +3,17 @@ import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 
-
-
 // app creation
 const app = express();
+
+
+
+
+// ENV Variable configured ✅
+dotenv.config(({
+    path:"/.env"
+}))
+
 
 // cors (CROSS ORIGIN RESOURCE SHARING Setup Done ☑️)
 app.use(cors({
@@ -14,11 +21,6 @@ app.use(cors({
     credentials:true
 }))
 
-
-// ENV Variable configured ✅
-dotenv.config(({
-    path:"/.env"
-}))
 
 
 // Taking data from the Form in JSON Format (limit - 20KB)
