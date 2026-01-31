@@ -124,7 +124,7 @@ const userLogin = asyncHandler(async (req, res) => {
 
     const { accessToken, refreshToken } = await generateAcessTokenAndRefreshToken(user._id)
 
-    const loggedInUser = await Login.findById(user._id).select("-password -refreshToken")
+    const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
     const options = {
         httpOnly: true,
@@ -149,4 +149,34 @@ const userLogin = asyncHandler(async (req, res) => {
 })
 
 
-export { userRegistration, userLogin }
+const logOut = asyncHandler(async(req,res)=>{
+
+    console.log(req)
+
+    await User.findByIdAndUpdate(
+        req.user._id,
+        {
+            $unset:{
+                refreshToken:1
+            }
+        },
+        {
+            new:true
+        }
+    )
+
+    const options = {
+        httpOnly:true,
+        secure:true
+    }
+
+
+    return res
+    .status(200)
+    .clearCookie("accessToken",options)
+    .clearCookie("refreshToken",options)
+    .json(new apiResponse(200,{},"User logged Out"))
+
+})
+
+export { userRegistration, userLogin,logOut }
