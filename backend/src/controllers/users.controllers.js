@@ -2,6 +2,8 @@ import { apiError } from "../utils/apiError.js";
 import { asyncHandler } from "../utils/asyncHandlers.js";
 import { apiResponse } from "../utils/apiResponse.js";
 import { Login } from "../model/login.model.js";
+import { User } from "../model/user.model.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 
 
@@ -15,10 +17,7 @@ const generateAcessTokenAndRefreshToken = async (userId) => {
         const refreshToken = user.generateRefreshToken()
 
         user.refreshToken = refreshToken
-
-
         await user.save({ validateBeforeSave: false })
-
         return { accessToken, refreshToken }
     }
     catch (error) {
@@ -27,26 +26,60 @@ const generateAcessTokenAndRefreshToken = async (userId) => {
 }
 
 
-const userRegistration = asyncHandler(async(req,res)=>{
+const userRegistration = asyncHandler(async (req, res) => {
+
+    console.log(req.body)
+    console.log(req.files)
+
+    const { councilId, password, academicDetails, designation, contactDetails, socialHanlde, dateOfJoining, description } = req.body
+
+    if (
+        [councilId, password, academicDetails, designation,contactDetails, socialHanlde, dateOfJoining, description]
+        .some((field) => field?.trim() == "")) {
+        throw new apiError(400, "All fields are required!")
+    }
+
+    const existedUser = await User.findOne({ councilId })
+
+    if (existedUser) {
+        throw new apiError(409, "User with council id already exists");
+    }
+
+    const profileLocalPath = req.files?.profilePic[0].path;
+
+    console.log(profileLocalPath)
     
+    let signatureLocalPath = req.files.signaturePic[0].path;
+    
+    console.log(signatureLocalPath)
+
+    if (!profileLocalPath) {
+        throw new apiError(400, "Avatar file is required")
+    }
+
+    const profilePic = await uploadOnCloudinary(profileLocalPath)
+    const signaturePic = await uploadOnCloudinary(signatureLocalPath)
+
+    if (!avatar) {
+        throw new apiError(400, "Avatar file is required")
+    }
+
+    console.log("Kaha ho ?")
+
+
 })
 
 
 
 const userLogin = asyncHandler(async (req, res) => {
 
-
     const { councilId, password } = req.body;
 
     if ([councilId, password].some((field) => field?.trim() == "")) {
         throw new apiError(400, "All fields are required!")
     }
-
-
-
-    const user = await Login.findOne(councilId)
-
-    if(!user) {
+    const user = await User.findOne(councilId)
+    if (!user) {
         throw new apiError(404, "User doesn't exist!")
     }
 
@@ -63,26 +96,26 @@ const userLogin = asyncHandler(async (req, res) => {
     const loggedInUser = await Login.findById(user._id).select("-password -refreshToken")
 
     const options = {
-        httpOnly:true,
-        secure:true
+        httpOnly: true,
+        secure: true
     }
 
 
     return res
-    .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
-    .json(
-        new apiResponse(
-            200,
-            {
-                user: loggedInUser, accessToken, refreshToken
-            },
-            "User logged in Successfully"
+        .status(200)
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .json(
+            new apiResponse(
+                200,
+                {
+                    user: loggedInUser, accessToken, refreshToken
+                },
+                "User logged in Successfully"
+            )
         )
-    )
 
 })
 
 
-export { userLogin }
+export { userRegistration, userLogin }

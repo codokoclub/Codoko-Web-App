@@ -1,6 +1,8 @@
 import mongoose, { Model, Schema } from "mongoose";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+
+
 const userSchema = new Schema({
 
     councilId: {
@@ -29,59 +31,59 @@ const userSchema = new Schema({
         required: true
     },
 
-    contactDetails: [
+    contactDetails: {
 
-        {
+        "email": {
             //email:
             type: String,
             required: true,
             trim: true
         },
-        {
+        "primaryPhoneNumber": {
             // phone number 1
             type: String,
             required: true,
             trim: true
 
         },
-        {
+        "secondaryPhoneNumber": {
             // phone number 2
             type: String,
             trim: true
 
         }
-    ],
-    socialHandle: [
-        {
+    },
+    socialHandle: {
+        "instagram": {
             //instagram
             type: String
         },
-        {
+        "github": {
             //github
             type: String,
             required: true,
             trim: true
         },
-        {
+        "facebook": {
             //facebook
             type: String
         },
-        {
+        "linkedin": {
             //linkedin
             type: String,
             required: true
         },
-        {
+        "youtube": {
             //youtube
             type: String,
 
         },
-        {
+        "medium": {
             //medium
             type: String
         }
 
-    ],
+    },
 
     dateOfJoining: {
         type: String,
@@ -119,27 +121,34 @@ userSchema.method.isPasswordCorrect = async function (password) {
 
 
 userSchema.method.generateAccessToken = function () {
-    return jwt.sign({
-        _id: this._id,
-        councilId: this.councilId,
-        name: this.name
-    }, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: process.env.ACCESS_TOKEN_EXPIRY
-    })
+
+    return jwt.sign(
+        {
+            _id: this._id,
+            councilId: this.councilId,
+            name: this.name
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+        }
+    )
 }
 
 
 
 
 userSchema.method.generateRefreshToken = function () {
-    return jwt.sign({
-        _id: this._id
-    },
+    return jwt.sign(
+        {
+            _id: this._id
+        },
         process.env.REFRESH_TOKEN_SECRET,
         {
             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
-        })
+        }
+    )
 }
 
 
-export const User = Model("userSchema", userSchema)
+export const User = mongoose.model("userSchema", userSchema)
