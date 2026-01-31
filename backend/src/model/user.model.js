@@ -100,6 +100,9 @@ const userSchema = new Schema({
     },
     description: {
         type: String
+    },
+    refreshToken:{
+        type:String
     }
 
 }, { timestamps: true })
