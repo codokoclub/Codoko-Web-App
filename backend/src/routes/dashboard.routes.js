@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { dashboardControlller } from "../controllers/dashboard.controllers.js";
+import {  eventController, codingEmperorController } from "../controllers/dashboard.controllers.js";
 import { upload } from "../middlewares/multer.middlewares.js";
 
 
@@ -7,7 +7,7 @@ import { upload } from "../middlewares/multer.middlewares.js";
 const router = Router()
 
 
-router.route('/data').post(upload.fields[
+router.route('/event').post(upload.fields([
     {
 
         name:"primaryEventImage",
@@ -18,7 +18,16 @@ router.route('/data').post(upload.fields[
         maxCount:1
 
     }
-],dashboardControlller)
+]),eventController)
 
+
+router.route('/emperor').post(upload.fields([
+
+    {
+        name:"emperorImage",
+        maxCount:1
+    }
+
+]),codingEmperorController)
 
 export default router
