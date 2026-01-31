@@ -7,7 +7,7 @@ const userSchema = new Schema({
 
     councilId: {
         type: String,
-        requried: true,
+        required: true,
         unique: true,
         trim: true,
         index: true
@@ -89,11 +89,11 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    displayPic: {
+    profilePic: {
         //image
         type: String
     },
-    signature: {
+    signaturePic: {
         //image
         type: String,
         required: true
@@ -110,13 +110,13 @@ const userSchema = new Schema({
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
 
-    this.password = await bcrypt.compare(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
 })
 
 
 userSchema.method.isPasswordCorrect = async function (password) {
-    return await bcrypt.compare(password, this.password)
+    return await bcrypt.compare(this.password, password)
 }
 
 

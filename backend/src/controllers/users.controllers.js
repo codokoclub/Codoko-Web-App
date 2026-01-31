@@ -28,14 +28,12 @@ const generateAcessTokenAndRefreshToken = async (userId) => {
 
 const userRegistration = asyncHandler(async (req, res) => {
 
-    console.log(req.body)
-    console.log(req.files)
 
-    const { councilId, password, academicDetails, designation, contactDetails, socialHanlde, dateOfJoining, description } = req.body
+    const { councilId, password, name, academicDetails, designation, contactDetails, socialHandle, dateOfJoining, description } = req.body
 
     if (
-        [councilId, password, academicDetails, designation,contactDetails, socialHanlde, dateOfJoining, description]
-        .some((field) => field?.trim() == "")) {
+        [councilId, password, academicDetails, designation, contactDetails.email, socialHandle.github, dateOfJoining, description]
+            .some((field) => field == "")) {
         throw new apiError(400, "All fields are required!")
     }
 
@@ -45,26 +43,59 @@ const userRegistration = asyncHandler(async (req, res) => {
         throw new apiError(409, "User with council id already exists");
     }
 
+
+    if (!req.files?.signaturePic || !req.files?.profilePic) {
+        throw new apiError(400, "Profile pic and Signature pic are required");
+    }
+
+
     const profileLocalPath = req.files?.profilePic[0].path;
 
     console.log(profileLocalPath)
-    
-    let signatureLocalPath = req.files.signaturePic[0].path;
-    
+
+    let signatureLocalPath = req.files?.signaturePic[0].path;
+
     console.log(signatureLocalPath)
 
     if (!profileLocalPath) {
-        throw new apiError(400, "Avatar file is required")
+        throw new apiError(400, "Profile Pic is required")
     }
 
     const profilePic = await uploadOnCloudinary(profileLocalPath)
     const signaturePic = await uploadOnCloudinary(signatureLocalPath)
 
-    if (!avatar) {
-        throw new apiError(400, "Avatar file is required")
+    console.log(profilePic.url)
+    if (!profilePic) {
+        throw new apiError(400, "Profile Pic is required")
     }
 
-    console.log("Kaha ho ?")
+
+    console.log(councilId)
+    console.log(password)
+
+    console.log(contactDetails)
+    console.log(socialHandle)
+    const user = await User.create({
+        councilId: councilId,
+        password: password,
+        name: name,
+        academicDetails: academicDetails,
+        designation: designation,
+        description: description,
+        contactDetails: contactDetails,
+        socialHandle: socialHandle,
+        dateOfJoining: dateOfJoining,
+        profilePic: profilePic?.url || "",
+        signaturePic: signaturePic?.url || ""
+    })
+
+    const createdUser = await User.findById(user._id).select("-password -refreshToken")
+
+    if (!createdUser) {
+        throw new apiError(500, "Something went wrong while registering the User!")
+    }
+
+    return res.status(201).json(new apiResponse(200, createdUser, "User registered Successfully!"))
 
 
 })
