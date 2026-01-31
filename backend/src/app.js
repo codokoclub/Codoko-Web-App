@@ -37,7 +37,10 @@ app.use(cookieParser())
 // Defining routes or nodes
 
 import userRouter from "./routes/login.routes.js"
+import dashboardRouter from "./routes/dashboard.routes.js"
+
 
 app.use('/auth',userRouter)
+app.use('/dashboard',dashboardRouter)
 
 export {app}
