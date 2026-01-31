@@ -11,7 +11,7 @@ const generateAcessTokenAndRefreshToken = async (userId) => {
 
     try {
 
-        const user = await Login.findById(userId)
+        const user = await User.findById(userId)
 
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
@@ -69,12 +69,6 @@ const userRegistration = asyncHandler(async (req, res) => {
         throw new apiError(400, "Profile Pic is required")
     }
 
-
-    console.log(councilId)
-    console.log(password)
-
-    console.log(contactDetails)
-    console.log(socialHandle)
     const user = await User.create({
         councilId: councilId,
         password: password,
@@ -109,12 +103,18 @@ const userLogin = asyncHandler(async (req, res) => {
     if ([councilId, password].some((field) => field?.trim() == "")) {
         throw new apiError(400, "All fields are required!")
     }
-    const user = await User.findOne(councilId)
+
+    const user = await User.findOne({councilId})
+
     if (!user) {
         throw new apiError(404, "User doesn't exist!")
     }
 
+    console.log(user)
+
     const isPasswordValid = await user.isPasswordCorrect(password)
+
+    console.log(isPasswordValid)
 
 
     if (!isPasswordValid) {
