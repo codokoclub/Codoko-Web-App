@@ -11,7 +11,7 @@ function CouncilMembers({ w, data, dash, disp ,wholeData}) {
 
     return (
 
-        <div className="CouncilMembers flex  my-[10px]  flex-row flex-wrap flex-auto justify-start"  >
+        <div className="CouncilMembers flex  my-[10px]  flex-row"  >
             <div className="CouncilMemberLeft">
 
                 <img
@@ -35,7 +35,7 @@ function CouncilMembers({ w, data, dash, disp ,wholeData}) {
 
 
             <div
-                className="CouncilMemberRight   ml-7  flex flex-col flex-wrap justify-center      "
+                className="CouncilMemberRight   ml-7  flex flex-col flex-wrap justify-center    "
                 style={{ fontFamily: "Azeret Mono", fontSize: "20px" }}
             >
 

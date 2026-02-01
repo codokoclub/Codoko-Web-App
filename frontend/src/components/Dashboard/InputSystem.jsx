@@ -49,7 +49,7 @@ function InputSystem({ eventTitleData, fontColor, fontSize, fontFamily, height, 
 
         <div className="InputSystem">
             <div
-                className="eventTitle  py-[12px] text-[#FF5993] bg-[#081121B2] px-[20px] rounded-2xl flex justify-between" style={{ fontSize: `${fontSize}`, height: `${height}`, color: `${fontColor}`, paddingLeft: `${px}` }}>
+                className="eventTitle   py-[12px] text-[#FF5993] bg-[#081121B2] px-[20px] rounded-2xl flex justify-between" style={{ fontSize: `${fontSize}`, height: `${height}`, color: `${fontColor}`, paddingLeft: `${px}` }}>
 
                 <span
                     className="eventTitleContent"
@@ -62,7 +62,7 @@ function InputSystem({ eventTitleData, fontColor, fontSize, fontFamily, height, 
                 </span>
 
                 <span
-                    className="editIcon cursor-pointer">
+                    className="editIcon cursor-pointer pl-10">
                     <i
                         onClick={() => { showContent(), set(saveData.current.textContent) }}
                         class="ri-edit-line bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"></i>

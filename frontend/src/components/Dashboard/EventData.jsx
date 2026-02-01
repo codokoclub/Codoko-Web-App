@@ -228,21 +228,17 @@ function EventData() {
                     <div className="councilMemeberTitle">
                         Codoko Club Council Members
                     </div>
-                    <div className="addMoreMember cursor-pointer">
-                        <button class="bg-green-600 cursor-pointer hover:bg-green-700 text-white px-5 py-1 rounded-lg transition duration-200 text-[24px]" onClick={() => { addData }}>
-                            + Add Member
-                        </button>
-                    </div>
+                
 
                 </div>
 
 
-                <div className="councilMemberInfo mt-3 flex-column ">
+                <div className="councilMemberInfo mt-3 flex flex-wrap ">
 
                     {
                         memberDetails.map((elem) => {
 
-                            return <CouncilMembers w="260px" dash={true} data={elem} disp="column" />
+                            return <CouncilMembers w="200px" dash={true} data={elem} disp="column" />
                         })
                     }
                 </div>
