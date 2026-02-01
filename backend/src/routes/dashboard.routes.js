@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {  eventController, codingEmperorController, councilMemberController } from "../controllers/dashboard.controllers.js";
+import {  eventController, codingEmperorController, councilMemberController, socialHandleController } from "../controllers/dashboard.controllers.js";
 import { upload } from "../middlewares/multer.middlewares.js";
 
 
@@ -43,6 +43,8 @@ router.route('/councilmember').post(upload.fields([
 ]),
 councilMemberController)
 
+
+router.route('/socialhandle').post(socialHandleController)
 
 
 export default router

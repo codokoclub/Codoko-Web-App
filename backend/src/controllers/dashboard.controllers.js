@@ -5,7 +5,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { apiResponse } from "../utils/apiResponse.js";
 import { codingEmperor } from "../model/dashboard/codingEmperor.model.js";
 import { User } from "../model/user.model.js";
-
+import { socialHandle } from "../model/dashboard/socialHandle.models.js"
 
 const eventController = asyncHandler(async (req, res) => {
 
@@ -132,14 +132,14 @@ const councilMemberController = asyncHandler(async (req, res) => {
             $set:
             {
                 name: name,
-                designation: designation, 
-                academicDetails: academicDetails, 
-                profilePic: profilePic.url, 
-                signaturePic:signaturePic.url,
-                password: password, 
-                dateOfJoining: dateOfJoining, 
-                description: description, 
-                socialHandle: socialHandle, 
+                designation: designation,
+                academicDetails: academicDetails,
+                profilePic: profilePic.url,
+                signaturePic: signaturePic.url,
+                password: password,
+                dateOfJoining: dateOfJoining,
+                description: description,
+                socialHandle: socialHandle,
                 contactDetails: contactDetails
             }
         },
@@ -158,4 +158,37 @@ const councilMemberController = asyncHandler(async (req, res) => {
 })
 
 
-export { eventController, codingEmperorController, councilMemberController }
+const socialHandleController = asyncHandler(async (req, res) => {
+
+    const { instagram, linkedin, youtube, discord, github, clubName } = req.body;
+
+    if ([instagram, linkedin, clubName, youtube, discord, github].some((field) => field.trim == "")) {
+        throw new apiError(400, "All fields are required!")
+    }
+
+    const sc = await socialHandle.findOneAndUpdate({ clubName: clubName },
+        {
+            $set: {
+
+                instagram,
+                linkedin,
+                youtube,
+                discord,
+                github
+            }
+        }, { new: true })
+
+    if (!sc) {
+        throw new apiError(500, "Something went wrong while updating Social Media Links!")
+    }
+
+    return res.status(200).json(
+        new apiResponse(200, "Social Media Handles Links Updated Successfully!")
+    )
+
+
+
+})
+
+
+export { eventController, codingEmperorController, councilMemberController, socialHandleController }
