@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {  eventController, codingEmperorController } from "../controllers/dashboard.controllers.js";
+import {  eventController, codingEmperorController, councilMemberController } from "../controllers/dashboard.controllers.js";
 import { upload } from "../middlewares/multer.middlewares.js";
 
 
@@ -29,5 +29,20 @@ router.route('/emperor').post(upload.fields([
     }
 
 ]),codingEmperorController)
+
+
+router.route('/councilmember').post(upload.fields([
+    {
+        name:"profilePic",
+        maxCount:1
+    },
+    {
+        name:"signaturePic",
+        maxCount:1
+    }
+]),
+councilMemberController)
+
+
 
 export default router

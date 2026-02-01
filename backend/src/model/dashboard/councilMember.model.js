@@ -23,7 +23,7 @@ const councilMemberSchema = new Schema({
         required:true
     }
 
-},{timestamps:true})
+},{timestamps:true,_id:true})
 
 
 export const CouncilMember = mongoose.model("CouncilMember",councilMemberSchema);
