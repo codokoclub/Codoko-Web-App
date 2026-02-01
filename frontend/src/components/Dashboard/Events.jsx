@@ -11,7 +11,7 @@ function Events({ eventHead, eventTitleData, eventDisc, joinLabel, joiningDate, 
 
 
 
-        <div className="Events flex flex-col py-[50px] px-[30px] bg-[#00040D]  " style={{ fontFamily: "Azeret Mono" }}>
+        <div className="Events flex flex-col py-[50px] px-[30px] bg-[#00040D] rounded  " style={{ fontFamily: "Azeret Mono" }}>
 
             <div className="eventHead text-[36px]" style={{ fontWeight: 700 }}>
                 {eventHead}

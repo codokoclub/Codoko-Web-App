@@ -101,19 +101,21 @@ function EventData() {
             </label> */}
 
 
-                <div className="containerUpdateEventImage bg-amber-600 w-[80vw] h-[400px]">
+                <div className="containerUpdateEventImage bg-[black] w-[80vw] h-[300px] flex overflow-hidden items-center justify-center rounded">
 
-                    <label for="fileInput" class="relative inline-block cursor-pointer">
-                        {/* <img
+                         <img
                             src="src/assets/eventBanner.png"
                             alt="Upload"
                             height="40px"
                             class="w-full h-auto"
-                            className="w-full h-[40vh]"
-                        /> */}
+                            className="w-full overflow-hidden rounded"
+
+                        
+                        /> 
+                    <label for="fileInput" class=" absolute w-[100%] cursor-pointer flex justify-center py-20">
                         <span
-                            class="floatingText absolute inset-0 flex items-center justify-center 
-           text-white text-lg font-semibold bg-black w-[500px]" style={{ fontFamily: "Azeret Mono" }}>
+                            class="floatingText 
+           text-white text-lg font-semibold " style={{ fontFamily: "Azeret Mono" }}>
                             📂 Update Event Image
                         </span>
                     </label>
@@ -134,25 +136,29 @@ function EventData() {
                     eventDate="2-10-2025"
                     eventJoiningLink="https://example.website.com/form/link"
                 />
-                <div className="containerUpdateEventImage bg-amber-600 w-[80vw] h-[400px]">
+               
+                <div className="containerUpdateEventImage bg-[black] w-[80vw] h-[300px] flex overflow-hidden items-center justify-center rounded">
 
-                    <label for="fileInput" class="relative inline-block cursor-pointer">
-                        {/* <img
-                    src="src/assets/eventBanner.png"
-                    alt="Upload"
-                    height="40px"
-                    class="w-full h-auto"
-                    className="w-full h-[40vh]"
-                /> */}
+                         <img
+                            src="src/assets/eventBanner.png"
+                            alt="Upload"
+                            height="40px"
+                            class="w-full h-auto"
+                            className="w-full overflow-hidden rounded"
+
+                        
+                        /> 
+                    <label for="fileInput" class=" absolute w-[100%] cursor-pointer flex justify-center py-20">
                         <span
-                            class="floatingText absolute inset-0 flex items-center justify-center 
-           text-white text-lg font-semibold bg-black w-[500px]" style={{ fontFamily: "Azeret Mono" }}>
-                            📂  Update Event Image
+                            class="floatingText 
+           text-white text-lg font-semibold " style={{ fontFamily: "Azeret Mono" }}>
+                            📂 Update Event Image
                         </span>
                     </label>
 
                     <input type="file" id="fileInput" class="hidden" />
                 </div>
+
                 <Events
                     eventHead="Secondary Event"
                     eventTitleData="Cygnus Hackathon 2025"
@@ -164,7 +170,7 @@ function EventData() {
                     eventJoiningLink="https://example.website.com/form/link"
                 />
 
-                <button className="bg-[#114050] border-2  border-[#1EB7EA] text-[#F5F5F5] px-12 py-3" style={{ borderRadius: "10px", fontFamily: "Nanum Gothic", fontWeight: "800" }}>
+                <button className="bg-[#114050] border-2  border-[#1EB7EA] text-[#F5F5F5] px-12 py-3 mt-6 cursor-pointer" style={{ borderRadius: "10px", fontFamily: "Nanum Gothic", fontWeight: "800" }}>
                     Update Events
                 </button>
             </form>
@@ -186,27 +192,27 @@ function EventData() {
                     <div className="codingEmperorLeft mr-5">
                         <img src="src/assets/codingEmperor.jpg" alt="coding_emperor img not displayed"
                             className="rounded-md  , 
-                    w-[270px] h-[270px] rounded-lg" />
+                    w-[240px] h-[240px] rounded-lg" />
                     </div>
                     <div className="codingEmperorRight flex flex-col justify-center items-left ml-3 text-[20px] mt-[10px]">
 
                         {/* <EmperorDetails title="CELESTIAL SERENITY" color="#FF5C5C" emoji="👑" /> */}
 
                         {/* <span className="text-[#FF5C5C]">Username: </span> */}
-                        <div className="block">    <InputSystem eventTitleData="CELESTIAL SERENITY" /></div>
+                        <div className="block my-2">    <InputSystem eventTitleData="CELESTIAL SERENITY" /></div>
                         {/* <EmperorDetails title="CODING EMPEROR OF THE SEMESTER" color="#0C8CE9" emoji="🫡" /> */}
 
 
                         {/* <InputSystem eventTitleData=""/> */}
                         {/* <span className="text-[#F0FF99]">Course & Year: </span> */}
-                        <div className="block">
+                        <div className="block my-2" >
 
                             <InputSystem fontColor="#F0FF99" eventTitleData="B. Tech CSE, 2nd Year" />
                         </div>
 
 
                         {/* <span className="text-[#FF25B3]">Coding Emperor: </span> */}
-                        <div className="block">
+                        <div className="block my-2">
                             <InputSystem fontColor="#F0FF99" eventTitleData="We have a special coding contest every year, the winner becomes EMPEROR" />
                         </div>
 
@@ -215,7 +221,7 @@ function EventData() {
                 </div>
 
                 <div className="updateButton my-[50px]">
-                    <button className="border-2 border-[#1EB7EA] px-[45px] py-[10px]  text-[16px] bg-[#114050]" style={{ fontFamily: "Nanum Gothic", borderRadius: "12px" }}>Update Coding Emperor</button>
+                    <button className="border-2 border-[#1EB7EA] px-[45px] py-[10px]  cursor-pointer text-[16px] bg-[#114050]" style={{ fontFamily: "Nanum Gothic", borderRadius: "12px" }}>Update Coding Emperor</button>
                 </div>
             </div>
 
