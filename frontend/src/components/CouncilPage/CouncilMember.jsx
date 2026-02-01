@@ -159,7 +159,7 @@ instagram:
     // councilMemberImgLink, councilMembersName, councilMemberDesignation, councilMemberAcademicDetails
     <div className="CouncilMember mt-[80px] mx-[140px] flex-row flex-wrap ">
       <div className="CouncilMemberTitle font-sans text-[#F9E6FF]" style={{ fontFamily: "Azeret Mono", fontSize: "27px" }}>
-        Codoko Club Council Members
+        Codoko Club Council Member
       </div>
 
 

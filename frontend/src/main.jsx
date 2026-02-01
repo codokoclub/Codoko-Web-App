@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 //* Integrating CSS File at the Root of the Hierarchy
 import './index.css'
+import './responsive.css'
 
 //* Importing APP.JSX from other Place
 import App from './App.jsx'
