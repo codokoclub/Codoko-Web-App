@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {  eventController, codingEmperorController, councilMemberController, socialHandleController } from "../controllers/dashboard.controllers.js";
-import { upload } from "../middlewares/multer.middlewares.js";
+import { upload } from "../middlewares/multer.middlewares.js"; 
 
 
 

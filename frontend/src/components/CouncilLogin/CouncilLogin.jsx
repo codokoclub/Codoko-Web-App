@@ -1,7 +1,25 @@
 import LoginInput from "./LoginInput"
-
+import { loginCouncilMember } from "../api/authService.js"
+import api from "../api/axiosinstance.js";
+import { useState } from "react";
 
 function CouncilLogin() {
+
+    const [formData,setFormData] = useState({
+
+    })
+    const handleSubmit = async(e)=>{
+        e.prevantDefault();
+        try {
+            
+            const res = await api.post("/auth/login",formData);
+
+        } catch (error) {
+
+            console.error(error.response?.data)
+            
+        }
+    }
 
     return (
         <div className="CouncilLogin  w-[100%]">
@@ -25,10 +43,10 @@ function CouncilLogin() {
             </div>
             
             <div className="councilLoginForm">
-                <form action="" method="post">
+                <form onSubmit={handleSubmit}>
                     <div className="councilLoginUpper flex flex-col items-center">
 
-                    <LoginInput type="text" name="Council Id" placeholder="Council ID" />
+                    <LoginInput type="text" name="councilId" placeholder="Council ID"  />
                     <LoginInput type="password" name="password" placeholder="Password" eye="ri-eye-line" noteye="ri-eye-off-line" />
                     </div>
                     <div className="councilLoginLower mt-[40px] flex justify-center">

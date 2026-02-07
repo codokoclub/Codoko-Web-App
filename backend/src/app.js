@@ -7,29 +7,21 @@ import cors from "cors"
 const app = express();
 
 
-
-
-// ENV Variable configured ✅
 dotenv.config(({
     path:"/.env"
 }))
 
 
-// cors (CROSS ORIGIN RESOURCE SHARING Setup Done ☑️)
 app.use(cors({
     origin:process.env.CORS_ORIGIN,
     credentials:true
 }))
 
 
-
-// Taking data from the Form in JSON Format (limit - 20KB)
 app.use(express.json({limit:"20KB"}))
 
-// Taking data from the URL (Old Version)
 app.use(express.urlencoded({extended:true}))
 
-// Configured to Access Cookies
 app.use(cookieParser())
 
 
@@ -40,7 +32,7 @@ import userRouter from "./routes/login.routes.js"
 import dashboardRouter from "./routes/dashboard.routes.js"
 
 
-app.use('/auth',userRouter)
-app.use('/dashboard',dashboardRouter)
+app.use('/api/v1/auth',userRouter)
+app.use('/api/v1/dashboard',dashboardRouter)
 
 export {app}
